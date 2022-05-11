@@ -1,9 +1,9 @@
-import * as app from "./app.js";
-import * as math from "./math.js";
 
-math.add = jest.fn();
-math.subtract = jest.fn();
+import * as app from "../src/App.js";
+import * as math from "../src/math.js";
 
+// Set all module functions to jest.fn
+jest.mock("./math.js");
 test("calls math.add", () => {
   app.doAdd(1, 2);
   expect(math.add).toHaveBeenCalledWith(1, 2);
